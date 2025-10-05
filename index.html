@@ -7,7 +7,8 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to top, #1a1a2e, #16213e);
+      background: url('hinhnentrungthu.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
       font-family: "Arial", sans-serif;
       text-align: center;
@@ -16,20 +17,27 @@
 
     h1 {
       margin-top: 60px;
-      font-size: 2.5em;
+      font-size: 2.8em;
       color: #ffd369;
-      text-shadow: 0 0 15px #f08a5d, 0 0 25px #f08a5d;
+      text-shadow: 0 0 20px #f08a5d, 0 0 40px #f08a5d;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #f08a5d; }
+      to { text-shadow: 0 0 30px #ffd369, 0 0 50px #f08a5d; }
     }
 
     p {
-      font-size: 1.3em;
-      margin-top: 20px;
-      color: #ffe0ac;
+      font-size: 1.4em;
+      margin-top: 15px;
+      color: #ffe8b6;
+      text-shadow: 0 0 10px #f08a5d;
     }
 
     img {
       margin-top: 40px;
-      width: 350px;
+      width: 360px;
       border-radius: 15px;
       box-shadow: 0 0 30px rgba(255, 211, 105, 0.6);
       transition: transform 0.5s ease;
@@ -46,7 +54,7 @@
       height: 80px;
       background: #ff4e50;
       border-radius: 30px;
-      box-shadow: 0 0 20px rgba(255, 78, 80, 0.7);
+      box-shadow: 0 0 20px rgba(255, 78, 80, 0.8);
       animation: swing 3s ease-in-out infinite;
     }
 
@@ -98,23 +106,15 @@
     }
 
     .crane:nth-child(3) {
-      top: 30%;
+      top: 25%;
       animation-delay: 10s;
       transform: scale(0.6);
     }
 
     @keyframes fly {
-      0% {
-        left: -150px;
-        transform: translateY(0) scale(1);
-      }
-      50% {
-        transform: translateY(-50px) scale(1.1);
-      }
-      100% {
-        left: 110%;
-        transform: translateY(0) scale(1);
-      }
+      0% { left: -150px; transform: translateY(0) scale(1); }
+      50% { transform: translateY(-50px) scale(1.1); }
+      100% { left: 110%; transform: translateY(0) scale(1); }
     }
   </style>
 </head>
@@ -123,7 +123,7 @@
   <p>Chúc bạn và gia đình một đêm Trung Thu đoàn viên, tràn ngập niềm vui và hạnh phúc 🎑🥮🐇</p>
 
   <!-- Hình bánh trung thu -->
-  <img src="hinhnentrungthu.png" alt="Bánh trung thu và trà">
+  <img src="hinhnentrungthu.jpg" alt="Bánh trung thu và trà">
 
   <!-- Nhạc nền -->
   <audio autoplay loop>
