@@ -7,7 +7,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: url('hinhnentrungthu.jpg') no-repeat center center fixed;
+      background: url('hinhnentrungthu.png') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       font-family: "Arial", sans-serif;
@@ -116,6 +116,27 @@
       50% { transform: translateY(-50px) scale(1.1); }
       100% { left: 110%; transform: translateY(0) scale(1); }
     }
+
+    /* Nút bật nhạc */
+    #playBtn {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 25px;
+      background: #ffd369;
+      color: #222;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 211, 105, 0.8);
+      transition: all 0.3s ease;
+    }
+
+    #playBtn:hover {
+      background: #f08a5d;
+      color: #fff;
+      box-shadow: 0 0 25px #f08a5d;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -123,12 +144,24 @@
   <p>Chúc bạn và gia đình một đêm Trung Thu đoàn viên, tràn ngập niềm vui và hạnh phúc 🎑🥮🐇</p>
 
   <!-- Hình bánh trung thu -->
-  <img src="hinhnentrungthu.jpg" alt="Bánh trung thu và trà">
+  <img src="hinhnentrungthu.png" alt="Bánh trung thu và trà">
 
   <!-- Nhạc nền -->
-  <audio autoplay loop>
+  <audio id="music" loop>
     <source src="chiecdensao.mp3" type="audio/mpeg">
   </audio>
+
+  <button id="playBtn">🎵 Bật nhạc Trung Thu</button>
+
+  <script>
+    const btn = document.getElementById("playBtn");
+    const music = document.getElementById("music");
+
+    btn.addEventListener("click", () => {
+      music.play();
+      btn.style.display = "none";
+    });
+  </script>
 
   <!-- Đèn lồng -->
   <div class="lantern" style="top: 100px; left: 20%;"></div>
