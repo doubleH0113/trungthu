@@ -27,6 +27,18 @@
       color: #ffe0ac;
     }
 
+    img {
+      margin-top: 40px;
+      width: 350px;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(255, 211, 105, 0.6);
+      transition: transform 0.5s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
     /* Đèn lồng */
     .lantern {
       position: absolute;
@@ -66,21 +78,66 @@
       50% { transform: rotate(-5deg); }
       100% { transform: rotate(5deg); }
     }
+
+    /* Hạc bay */
+    .crane {
+      position: absolute;
+      top: 60%;
+      left: -100px;
+      width: 80px;
+      height: 80px;
+      background: url('https://cdn-icons-png.flaticon.com/512/7430/7430773.png') no-repeat center/contain;
+      animation: fly 20s linear infinite;
+      opacity: 0.9;
+    }
+
+    .crane:nth-child(2) {
+      top: 40%;
+      animation-delay: 5s;
+      transform: scale(0.8);
+    }
+
+    .crane:nth-child(3) {
+      top: 30%;
+      animation-delay: 10s;
+      transform: scale(0.6);
+    }
+
+    @keyframes fly {
+      0% {
+        left: -150px;
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-50px) scale(1.1);
+      }
+      100% {
+        left: 110%;
+        transform: translateY(0) scale(1);
+      }
+    }
   </style>
 </head>
 <body>
   <h1>✨ Chúc Mừng Trung Thu ✨</h1>
   <p>Chúc bạn và gia đình một đêm Trung Thu đoàn viên, tràn ngập niềm vui và hạnh phúc 🎑🥮🐇</p>
 
-   <!-- Hình bánh trung thu -->
-  <img src="hinhnentrungthu.png" alt="Bánh trung thu">
+  <!-- Hình bánh trung thu -->
+  <img src="hinhnentrungthu.png" alt="Bánh trung thu và trà">
 
-  
+  <!-- Nhạc nền -->
+  <audio autoplay loop>
+    <source src="chiecdensao.mp3" type="audio/mpeg">
+  </audio>
+
   <!-- Đèn lồng -->
   <div class="lantern" style="top: 100px; left: 20%;"></div>
   <div class="lantern" style="top: 250px; left: 60%; background:#ffd369; box-shadow:0 0 20px #ffd369;"></div>
   <div class="lantern" style="top: 150px; left: 80%; background:#00bbf9; box-shadow:0 0 20px #00bbf9;"></div>
+
+  <!-- Hạc bay -->
+  <div class="crane"></div>
+  <div class="crane"></div>
+  <div class="crane"></div>
 </body>
 </html>
-
-
