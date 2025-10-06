@@ -117,9 +117,9 @@
       100% { left: 110%; transform: translateY(0) scale(1); }
     }
 
-    /* Nút bật nhạc */
-    #playBtn {
-      margin-top: 30px;
+    /* Nút */
+    .btn {
+      margin-top: 20px;
       padding: 12px 25px;
       font-size: 1.1em;
       border: none;
@@ -131,11 +131,26 @@
       transition: all 0.3s ease;
     }
 
-    #playBtn:hover {
+    .btn:hover {
       background: #f08a5d;
       color: #fff;
       box-shadow: 0 0 25px #f08a5d;
       transform: scale(1.05);
+    }
+
+    /* Hình ẩn */
+    .hidden-img {
+      display: none;
+      margin-top: 30px;
+      width: 350px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
@@ -151,14 +166,27 @@
     <source src="chiecdensao.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Nút phát nhạc -->
-  <button id="playBtn">🎵 Bật nhạc Trung Thu</button>
+  <!-- Các nút -->
+  <button id="playBtn" class="btn">🎵 Bật nhạc Trung Thu</button>
+  <br>
+  <button id="btnMao1" class="btn">🌸 Hiện Mèo Hoa</button>
+  <button id="btnMao2" class="btn">🌹 Hiện Mèo Hồng</button>
+
+  <!-- Hai hình mèo -->
+  <div>
+    <img id="mao1" class="hidden-img" src="mememao1.png" alt="Mèo Hoa dễ thương">
+    <img id="mao2" class="hidden-img" src="mememao2.png" alt="Mèo Hồng dễ thương">
+  </div>
 
   <script>
     const btn = document.getElementById("playBtn");
     const music = document.getElementById("music");
+    const btn1 = document.getElementById("btnMao1");
+    const btn2 = document.getElementById("btnMao2");
+    const mao1 = document.getElementById("mao1");
+    const mao2 = document.getElementById("mao2");
 
-    // Thử phát tự động (nếu trình duyệt cho phép)
+    // Phát nhạc tự động (nếu được phép)
     window.addEventListener("load", () => {
       const playPromise = music.play();
       if (playPromise !== undefined) {
@@ -168,14 +196,25 @@
       }
     });
 
-    // Khi người dùng bấm nút → phát nhạc và ẩn nút
+    // Nút bật nhạc
     btn.addEventListener("click", () => {
       music.play();
       btn.style.display = "none";
     });
+
+    // Hiện từng hình mèo
+    btn1.addEventListener("click", () => {
+      mao1.style.display = "block";
+      mao2.style.display = "none";
+    });
+
+    btn2.addEventListener("click", () => {
+      mao2.style.display = "block";
+      mao1.style.display = "none";
+    });
   </script>
 
-  <!-- Đèn lồng (đỏ dời sang trái) -->
+  <!-- Đèn lồng -->
   <div class="lantern" style="top: 250px; left: 5%;"></div>
   <div class="lantern" style="top: 250px; left: 60%; background:#ffd369; box-shadow:0 0 20px #ffd369;"></div>
   <div class="lantern" style="top: 250px; left: 80%; background:#00bbf9; box-shadow:0 0 20px #00bbf9;"></div>
@@ -186,4 +225,3 @@
   <div class="crane"></div>
 </body>
 </html>
-
